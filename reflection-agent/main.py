@@ -1,4 +1,5 @@
 from typing import List, Sequence
+from IPython.display import Image, display
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -38,6 +39,7 @@ builder.add_conditional_edges(GENERATE, should_continue)
 builder.add_edge(REFLECT, GENERATE)
 
 graph = builder.compile()
+
 print(graph.get_graph().draw_mermaid())
 graph.get_graph().print_ascii()
 
@@ -53,5 +55,4 @@ if __name__ == "__main__":
 
                                   """)
     response = graph.invoke(inputs)
-    print(response["AIMessage"])
-
+    
